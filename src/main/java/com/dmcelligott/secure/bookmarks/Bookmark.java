@@ -3,17 +3,19 @@ package com.dmcelligott.secure.bookmarks;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.pojomatic.Pojomatic;
+import org.pojomatic.annotations.AutoProperty;
 
 @Entity
 @Table(name = "Bookmarks")
+@AutoProperty
 public class Bookmark {
 
 	@Id
@@ -26,8 +28,7 @@ public class Bookmark {
 
 	private Date createdDate;
 
-	@OneToMany(cascade= CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "bookmark_id")
+	@ManyToMany
 	private List<Label> labels;
 
 	public Long getId() {
@@ -68,6 +69,21 @@ public class Bookmark {
 
 	public void setLabels(List<Label> labels) {
 		this.labels = labels;
+	}
+
+	@Override
+	public int hashCode() {
+		return Pojomatic.hashCode(this);
+	}
+
+	@Override
+	public String toString() {
+		return Pojomatic.toString(this);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return Pojomatic.equals(this, o);
 	}
 
 }
