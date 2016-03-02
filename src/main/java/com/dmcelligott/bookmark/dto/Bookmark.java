@@ -1,4 +1,4 @@
-package com.dmcelligott.secure.bookmarks;
+package com.dmcelligott.bookmark.dto;
 
 import java.util.Date;
 import java.util.List;
@@ -30,6 +30,8 @@ public class Bookmark {
 
 	@ManyToMany
 	private List<Label> labels;
+	
+	private Long userId;
 
 	public Long getId() {
 		return id;
@@ -69,6 +71,14 @@ public class Bookmark {
 
 	public void setLabels(List<Label> labels) {
 		this.labels = labels;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	@Override

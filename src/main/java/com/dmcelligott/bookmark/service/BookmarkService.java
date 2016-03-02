@@ -1,4 +1,4 @@
-package com.dmcelligott.secure.bookmarks;
+package com.dmcelligott.bookmark.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+import com.dmcelligott.bookmark.dto.Bookmark;
+import com.dmcelligott.bookmark.dto.Label;
+import com.dmcelligott.bookmark.repository.BookmarkRepository;
+import com.dmcelligott.bookmark.repository.LabelRepository;
+
+@Service()
 public class BookmarkService {
 
 	@Autowired
@@ -18,6 +23,10 @@ public class BookmarkService {
 
 	public Iterable<Bookmark> findAll() {
 		return bookmarkRepository.findAll();
+	}
+	
+	public Iterable<Bookmark> findByUserId(Long userId) {
+		return bookmarkRepository.findByUserId(userId);
 	}
 
 	public Bookmark findOne(Long id) {

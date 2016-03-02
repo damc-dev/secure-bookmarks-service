@@ -1,4 +1,4 @@
-package com.dmcelligott.secure.bookmarks;
+package com.dmcelligott.bookmark.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +20,13 @@ public class Label {
 	private long id;
 
 	private String name;
+	
+	public Label() {
+	}
+	
+	public Label(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;

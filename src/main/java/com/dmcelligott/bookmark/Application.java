@@ -1,12 +1,12 @@
-package com.dmcelligott.secure.bookmarks;
+package com.dmcelligott.bookmark;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecureBookmarksServiceApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SecureBookmarksServiceApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
